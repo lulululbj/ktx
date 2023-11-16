@@ -1,0 +1,21 @@
+apply plugin: 'maven-publish'
+
+
+// Maven 发布配置
+publishing {
+    publications {
+        // 发布配置名称（例如：libraryJar、librarySources 等）
+        release(MavenPublication) {
+            // 发布的 artifact ID、版本号、描述等信息
+            groupId = 'luyao' // 修改为你的项目的 Group ID
+            artifactId = 'ktx' // 修改为你的项目的 Artifact ID
+            version = '0.0.1' // 修改为你的项目的版本号
+
+            // 发布的 artifact 文件
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
+}
+
